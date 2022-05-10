@@ -29,57 +29,55 @@ Project File Date:  05/10/2022
 Rebuild target 'Target 1'
 Note: source file '.\DriverLCD.s' - object file renamed from '.\Objects\DriverLCD.o' to '.\Objects\driverlcd_1.o'.
 Note: source file '.\DriverLCD.s' - object file renamed from '.\Objects\DriverLCD.o' to '.\Objects\driverlcd_1.o'.
+assembling DriverLCD.s...
 principal.c(13): warning: 'return' will never be executed [-Wunreachable-code-return]
                  return 0;
                         ^
 1 warning generated.
 compiling principal.c...
-assembling DriverLCD.s...
-driverLCD.c(5): warning: no previous extern declaration for non-static variable 'retourne' [-Wmissing-variable-declarations]
-const short int retourne[16]={0x0,0x8,0x4,0xC,0x2,0xA,0x6,0xE,0x1,0x9,0x5,0xD,0x3,0xB,0x7,0xF};
+compiling stm32f4xx_hal.c...
+driverLCD.c(5): warning: no previous extern declaration for non-static variable 'bar' [-Wmissing-variable-declarations]
+const short int bar[6]={0x00,0x10,0x18,0x1C,0x1E,0x1F};
                 ^
 driverLCD.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-const short int retourne[16]={0x0,0x8,0x4,0xC,0x2,0xA,0x6,0xE,0x1,0x9,0x5,0xD,0x3,0xB,0x7,0xF};
-      ^
-driverLCD.c(6): warning: no previous extern declaration for non-static variable 'bar' [-Wmissing-variable-declarations]
-const short int bar[6]={0x00,0x10,0x18,0x1C,0x1E,0x1F};
-                ^
-driverLCD.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 const short int bar[6]={0x00,0x10,0x18,0x1C,0x1E,0x1F};
       ^
-driverLCD.c(7): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
+driverLCD.c(6): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
 volatile char data[6]={0x33,0x32,0x28,0x0F,0x14,0x01};
               ^
-driverLCD.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+driverLCD.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 volatile char data[6]={0x33,0x32,0x28,0x0F,0x14,0x01};
          ^
-driverLCD.c(21): warning: declaration shadows a variable in the global scope [-Wshadow]
-        int data[6]={0x33,0x32,0x28,0x0F,0x14,0x01};
+driverLCD.c(18): warning: declaration shadows a variable in the global scope [-Wshadow]
+        int data[6]={0x33,0x32,0x28,0x0D,0x1C,0x01};
             ^
-driverLCD.c(7): note: previous declaration is here
+driverLCD.c(6): note: previous declaration is here
 volatile char data[6]={0x33,0x32,0x28,0x0F,0x14,0x01};
               ^
-driverLCD.c(29): warning: declaration shadows a variable in the global scope [-Wshadow]
+driverLCD.c(26): warning: declaration shadows a variable in the global scope [-Wshadow]
 void write4bData(int data) {
                      ^
-driverLCD.c(7): note: previous declaration is here
+driverLCD.c(6): note: previous declaration is here
 volatile char data[6]={0x33,0x32,0x28,0x0F,0x14,0x01};
               ^
-driverLCD.c(31): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOC->ODR=(GPIOC->ODR & 0xFFFFFFF0)|(data);
+driverLCD.c(28): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOE->ODR=(GPIOE->ODR & 0xFFFFFFF0)|(data);
                                             ~ ^~~~
-driverLCD.c(38): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOC->ODR &=~(1<<10);
-                   ~~^~~~~~~~
-driverLCD.c(44): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOC->ODR &=~(1<<12);
-                   ~~^~~~~~~~
-driverLCD.c(50): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOC->ODR &=~(1<<11);
-                   ~~^~~~~~~~
+driverLCD.c(35): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOE->ODR &=~(1<<4);
+                   ~~^~~~~~~
+driverLCD.c(42): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOE->ODR &=~(1<<5);
+                   ~~^~~~~~~
+driverLCD.c(49): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOE->ODR &=~(1<<6);
+                   ~~^~~~~~~
+driverLCD.c(122): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
 9 warnings generated.
 compiling driverLCD.c...
-compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_gpio.c...
 C:/Users/Yannis Peloutier/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(217): warning: function 'HAL_NVIC_SystemReset' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
 {
 ^
@@ -91,19 +89,18 @@ C:/Users/Yannis Peloutier/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Driv
                          ^
 2 warnings generated.
 compiling stm32f4xx_hal_cortex.c...
-compiling stm32f4xx_hal_gpio.c...
 C:/Users/Yannis Peloutier/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c(381): warning: unused parameter 'Regulator' [-Wunused-parameter]
 void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
                                      ^
 1 warning generated.
 compiling stm32f4xx_hal_pwr.c...
 compiling stm32f4xx_hal_pwr_ex.c...
-assembling startup_stm32f407xx.s...
-compiling stm32f4xx_hal_rcc_ex.c...
 compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+assembling startup_stm32f407xx.s...
 compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=864 RO-data=428 RW-data=0 ZI-data=1632  
+Program Size: Code=880 RO-data=428 RW-data=0 ZI-data=1632  
 ".\Objects\GPS.axf" - 0 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -141,19 +138,19 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:STM32Cube Framework:Classic:1.7.13
-      Include file:  CMSIS\Driver\Config\RTE_Device.h
-      Include file:  MDK\Templates\Inc\main.h
-      Source file:   MDK\Templates\Src\stm32f4xx_it.c
-      Source file:   MDK\Templates\Src\main.c
-      Include file:  MDK\Templates_LL\Inc\main.h
+      Source file:   MDK\Templates\Src\stm32f4xx_hal_msp.c
       Source file:   MDK\Templates_LL\Src\main.c
       Include file:  MDK\Templates\Inc\stm32f4xx_it.h
+      Source file:   MDK\Templates\Src\stm32f4xx_it.c
+      Include file:  MDK\Templates_LL\Inc\main.h
+      Include file:  CMSIS\Driver\Config\RTE_Device.h
+      Include file:  MDK\Templates\Inc\main.h
+      Source file:   MDK\Templates\Src\main.c
       Include file:  MDK\Templates\Inc\stm32f4xx_hal_conf.h
-      Source file:   MDK\Templates\Src\stm32f4xx_hal_msp.c
 
    * Component: Keil::Device:STM32Cube HAL:Common:1.7.13
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c
       Include file:  Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c
 
    * Component: Keil::Device:STM32Cube HAL:Cortex:1.7.13
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c
@@ -162,20 +159,20 @@ Package Vendor: Keil
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c
 
    * Component: Keil::Device:STM32Cube HAL:PWR:1.7.13
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr_ex.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c
 
    * Component: Keil::Device:STM32Cube HAL:RCC:1.7.13
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

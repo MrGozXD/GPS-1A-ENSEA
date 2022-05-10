@@ -114,7 +114,7 @@ void lcdSendStr (unsigned char *str) {
 	int i=0;
 	while(str[i]!='\0') {
 		if (i==16) {
-			lcdFixePosition(0x40);// On revient � la ligne
+			lcdFixePosition(0x40);// On revient à la ligne
 		}
 		 lcdSendChar (str[i]);
 		 i=i+1;
